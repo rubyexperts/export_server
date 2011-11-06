@@ -1,0 +1,65 @@
+diff --git a/app/models/expense.rb b/app/models/expense.rb
+index 88df20f..5790914 100644
+--- a/app/models/expense.rb
++++ b/app/models/expense.rb
+@@ -11,11 +11,11 @@ class Expense < ActiveRecord::Base
+  	if search and search != ""
+  		   #find(:all, :conditions => ['id = ? AND user_id = ?', "#{search}", "#{userid}"])
+  		   paginate :per_page => 13, :page => page,
+- 		   :conditions => ['id = ? AND user_id = ?', "#{search}","#{userid}"]
++ 		   :conditions => ['id = ? AND user_id = ?', "#{search}","#{userid}"],:order => 'created_at desc'
+     else 
+  		 #  find(:all, :conditions => ['user_id = ?', "#{userid}"])
+  		   paginate :per_page => 13, :page => page,
+- 		   :conditions => ['user_id = ?', "#{userid}"]
++ 		   :conditions => ['user_id = ?', "#{userid}"],:order => 'created_at desc'
+ 
+  	end
+  end
+@@ -24,12 +24,12 @@ class Expense < ActiveRecord::Base
+  	if search and search != ""
+  		   # find(:all, :conditions => ['id = ?', "#{search}"])
+  		   paginate :per_page => 13, :page => page,
+- 		   :conditions => ['id = ?', "#{search}"]
++ 		   :conditions => ['id = ?', "#{search}"],:order => 'created_at desc'
+ 
+     else 
+  		  # find(:all,page)
+  		  paginate :per_page => 13, :page => page,
+- 		  :conditions => ["#{search}"]
++ 		  :conditions => ["#{search}"],:order => 'created_at desc'
+ 
+  	end
+  end
+diff --git a/app/views/expenses/_item_fields.html.erb b/app/views/expenses/_item_fields.html.erb
+index 5ddc6b3..28988f3 100644
+--- a/app/views/expenses/_item_fields.html.erb
++++ b/app/views/expenses/_item_fields.html.erb
+@@ -8,11 +8,11 @@
+   <td> <%= f.text_field :linecost_euro, :size => "7" %> </td>
+   <td> <%= f.text_field :exchangerate,  :size => "7" %> </td>
+   <td>  <%= f.collection_select :project_id, Project.find(:all, :order => "description"), :id, :description, {:include_blank => "N/A (Not Applicable)"}, {"style" => "width:250px" } %> </td>
+-  <td>  <%= f.collection_select :user_id, User.find(:all, :conditions => ["site = ?" , @current_user.site]), :id, :display_name, {:include_blank => "N/A (Not Applicable)"}, {"style" => "width:130px" } %> </td>
++  <td>  <%= f.collection_select :user_id, User.find(:all), :id, :display_name, {:include_blank => "N/A (Not Applicable)"}, {"style" => "width:130px" } %> </td>
+   <td width="70">  <%= f.check_box :ptslmarketing %> </td>
+   <td>  <%= f.hidden_field :_destroy %>
+         <%= link_to_function "Delete", "remove_fields(this)"  %>
+   </td>
+ 
+   </tr>
+-</table>
+\ No newline at end of file
++</table>
+diff --git a/app/views/expenses/show.html.erb b/app/views/expenses/show.html.erb
+index ff51dc6..12a9edc 100644
+--- a/app/views/expenses/show.html.erb
++++ b/app/views/expenses/show.html.erb
+@@ -70,7 +70,7 @@
+ 	<th>Line Exchange Rate</th>
+ 	<th>Marketing</th>
+ 	</tr>
+-	<% for item in @expense.items %>
++	<% for item in @expense.items.find(:all,:order => "expense_date desc") %>
+ 		<tr>
+ 		<td><%= h(item.expense_date.strftime("%b %d, %Y")) %></td>
+ 		<td><%= h(item.item_description) %></td>

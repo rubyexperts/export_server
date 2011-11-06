@@ -8,7 +8,7 @@
   <td> <%= f.text_field :linecost_euro, :size => "7" %> </td>
   <td> <%= f.text_field :exchangerate,  :size => "7" %> </td>
   <td>  <%= f.collection_select :project_id, Project.find(:all, :order => "description"), :id, :description, {:include_blank => "N/A (Not Applicable)"}, {"style" => "width:250px" } %> </td>
-  <td>  <%= f.collection_select :user_id, User.find(:all, :conditions => ["site = ?" , @current_user.site]), :id, :display_name, {:include_blank => "N/A (Not Applicable)"}, {"style" => "width:130px" } %> </td>
+  <td>  <%= f.collection_select :user_id, User.find(:all), :id, :display_name, {:include_blank => "N/A (Not Applicable)"}, {"style" => "width:130px" } %> </td>
   <td width="70">  <%= f.check_box :ptslmarketing %> </td>
   <td>  <%= f.hidden_field :_destroy %>
         <%= link_to_function "Delete", "remove_fields(this)"  %>

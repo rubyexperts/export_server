@@ -70,7 +70,7 @@
 	<th>Line Exchange Rate</th>
 	<th>Marketing</th>
 	</tr>
-	<% for item in @expense.items %>
+	<% for item in @expense.items.find(:all,:order => "expense_date desc") %>
 		<tr>
 		<td><%= h(item.expense_date.strftime("%b %d, %Y")) %></td>
 		<td><%= h(item.item_description) %></td>
