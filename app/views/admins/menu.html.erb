@@ -1,0 +1,26 @@
+<% @page_title = 'Main Menu' -%>
+<table width="400" align="center">
+	<tr>
+	<td><h4>Welcome to the Expense Reporting System</h4></td>
+	</tr>
+	<tr>	
+	<td><b>Select a link below to enter in to the application</b></td>
+	</tr>
+</table>
+<table width="300" align="center">	
+    <tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
+    <% if @current_user.user_level >= 1%>
+       <tr><td><%= link_to('Expense Report Entry', :controller => 'expenses') %></td></tr>
+    <% end %>
+    <% if @current_user.user_level >= 2%>
+	   <tr><td><%= link_to('Manage Projects', :controller => 'projects') %></td></tr>
+	   <tr><td><%= link_to('Manage Expense Types / GL Accounts', :controller => 'accounts') %></td></tr>
+	<% end %>
+	<% if @current_user.user_level >= 2%>
+       <tr><td><%= link_to('Manage Expenses', :controller => 'expenses', :action => 'search_list')  %></td></tr>
+    <% end %>
+
+	<% if @current_user.user_level >= 9%>
+       <tr><td><%= link_to('Manage User Accounts', :controller => 'users') %></td></tr>
+    <% end %>
+</table>

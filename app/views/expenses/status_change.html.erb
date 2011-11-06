@@ -1,0 +1,41 @@
+<% @page_title = 'Expense Report Status Change' %>
+<div>
+  <table>
+    <tr>
+      <td>
+  		<table>
+  			<tr>
+    			<th align="right" >Belongs To</th>
+  				<td><%= @expense.user.display_name %></td>
+  			</tr>
+			<tr>
+  				<th align="right">Title</th>
+  				<td><%= @expense.name %></td>
+  			</tr>
+  			<tr>
+  				<th align="right">Report Id</th>
+  				<td><%= @expense.id %></td>
+  			</tr>
+  			<tr>
+				<th align="right">Created on</th>
+				<td> <%= @expense.created_at.strftime("%b %d, %Y") %> </td>
+			</tr>
+			<tr>
+			   <% form_for @expense, :html => {:id => 'status_form'}  do |f| %>
+			   <div id="expenseerrors"> <%= f.error_messages %>  </div>
+    		     <th align="right"> <%= f.label :status, " Status" %></th>
+  				 <td>   <%= f.select(:status, [['UNPAID'],['PAYMENT IN PROCESS'],['PAID']], :size => "20") %></td>
+  				 <td>   <%= f.submit %> </td>
+			   </div>  
+			   <%= request.referer %>
+  		       <% end %> 
+			</tr>
+  		</table>
+	  </td>
+    </tr>
+  </table> 
+  <p> 
+    <%= link_to "Update Status List", search_list_expenses_path %>
+  </p>    
+</div>
+

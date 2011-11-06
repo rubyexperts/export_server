@@ -1,0 +1,112 @@
+** Starting Mongrel listening at 0.0.0.0:3000
+** Starting Rails with production environment...
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  INT => stop (no restart).
+** Mongrel 1.1.5 available at 0.0.0.0:3000
+** Use CTRL-C to stop.
+The {{key}} interpolation syntax in I18n messages is deprecated. Please use %{key} instead.
+en - {{count}} errors prohibited this {{model}} from being saved
+
+** INT signal received.
+** Starting Mongrel listening at 0.0.0.0:3000
+** Starting Rails with production environment...
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  INT => stop (no restart).
+** Mongrel 1.1.5 available at 0.0.0.0:3000
+** Use CTRL-C to stop.
+The {{key}} interpolation syntax in I18n messages is deprecated. Please use %{key} instead.
+en - {{count}} errors prohibited this {{model}} from being saved
+
+** INT signal received.
+** Starting Mongrel listening at 0.0.0.0:3000
+** Starting Rails with production environment...
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  INT => stop (no restart).
+** Mongrel 1.1.5 available at 0.0.0.0:3000
+** Use CTRL-C to stop.
+The {{key}} interpolation syntax in I18n messages is deprecated. Please use %{key} instead.
+en - 1 error prohibited this {{model}} from being saved
+
+Error sending file C:/InstantRails/rails_apps/expensereport/public/images/talgo.jpg: An existing connection was forcibly closed by the remote host.
+Error sending file C:/InstantRails/rails_apps/expensereport/public/stylesheets/public.css: An existing connection was forcibly closed by the remote host.
+Error sending file C:/InstantRails/rails_apps/expensereport/public/stylesheets/expense.css: An existing connection was forcibly closed by the remote host.
+** INT signal received.
+** Starting Mongrel listening at 0.0.0.0:3000
+** Starting Rails with production environment...
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  INT => stop (no restart).
+** Mongrel 1.1.5 available at 0.0.0.0:3000
+** Use CTRL-C to stop.
+The {{key}} interpolation syntax in I18n messages is deprecated. Please use %{key} instead.
+en - {{count}} errors prohibited this {{model}} from being saved
+
+** INT signal received.
+** Starting Mongrel listening at 0.0.0.0:3000
+** Starting Rails with production environment...
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  INT => stop (no restart).
+** Mongrel 1.1.5 available at 0.0.0.0:3000
+** Use CTRL-C to stop.
+** INT signal received.
+** Starting Mongrel listening at 0.0.0.0:3000
+** Starting Rails with production environment...
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  INT => stop (no restart).
+** Mongrel 1.1.5 available at 0.0.0.0:3000
+** Use CTRL-C to stop.
+The {{key}} interpolation syntax in I18n messages is deprecated. Please use %{key} instead.
+en - 1 error prohibited this {{model}} from being saved
+
+** INT signal received.
+** Starting Mongrel listening at 0.0.0.0:3000
+** Starting Rails with production environment...
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  INT => stop (no restart).
+** Mongrel 1.1.5 available at 0.0.0.0:3000
+** Use CTRL-C to stop.
+The {{key}} interpolation syntax in I18n messages is deprecated. Please use %{key} instead.
+en - 1 error prohibited this {{model}} from being saved
+
+Error sending file C:/InstantRails/rails_apps/expensereport/public/stylesheets/public.css: An existing connection was forcibly closed by the remote host.
+** INT signal received.
+** Starting Mongrel listening at 0.0.0.0:3000
+** Starting Rails with production environment...
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  INT => stop (no restart).
+** Mongrel 1.1.5 available at 0.0.0.0:3000
+** Use CTRL-C to stop.
+The {{key}} interpolation syntax in I18n messages is deprecated. Please use %{key} instead.
+en - 1 error prohibited this {{model}} from being saved
+
+** INT signal received.
+** Starting Mongrel listening at 0.0.0.0:3000
+** Starting Rails with production environment...
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  INT => stop (no restart).
+** Mongrel 1.1.5 available at 0.0.0.0:3000
+** Use CTRL-C to stop.
+** INT signal received.
+** Starting Mongrel listening at 0.0.0.0:3000
+** Starting Rails with production environment...
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  INT => stop (no restart).
+** Mongrel 1.1.5 available at 0.0.0.0:3000
+** Use CTRL-C to stop.
+The {{key}} interpolation syntax in I18n messages is deprecated. Please use %{key} instead.
+en - {{count}} errors prohibited this {{model}} from being saved
+
+Tue Nov 01 13:13:26 -0700 2011: HTTP parse error, malformed request (127.0.0.1): #<Mongrel::HttpParserError: Invalid HTTP format, parsing fails.>
+Tue Nov 01 13:13:26 -0700 2011: REQUEST DATA: "\003"
+---
+PARAMS: {}
+---

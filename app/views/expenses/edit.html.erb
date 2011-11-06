@@ -1,0 +1,8 @@
+<% @page_title = 'Edit Expense' %>
+
+
+  <%= render :partial => 'form' %>
+  <p>
+    <%= link_to('Print', {:action => 'show'},  :target => '_blank') %>|
+    <%= link_to "View All", expenses_path %>
+  </p>

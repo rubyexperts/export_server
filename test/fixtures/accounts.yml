@@ -1,0 +1,7 @@
+one:
+  accountcode: MyString
+  sapglaccount: MyString
+
+two:
+  accountcode: MyString
+  sapglaccount: MyString

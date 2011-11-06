@@ -1,0 +1,22 @@
+<% @page_title = 'User Sign in' -%>
+
+<% form_tag(:action => 'send_login') do -%>
+
+<table width="600">
+	<tr><h5>Welcome to Expense Reporting System; please enter your information</h5></tr>
+
+	<tr>
+		<th>Username: </th> 
+		<td><%= text_field_tag('username', params[:username], :size => "19") %></td>
+	</tr>
+	<tr>
+		<th>Password: </th>
+		<td> <%= password_field_tag('password') %></td>
+	</tr>
+</table>	
+<p> 
+
+	<%= submit_tag("Log Securely") %>
+</p>	
+	
+<% end -%>

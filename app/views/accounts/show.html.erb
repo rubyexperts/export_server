@@ -1,0 +1,16 @@
+<% title "Account" %>
+
+<p>
+  <strong>Accountcode:</strong>
+  <%=h @account.account %>
+</p>
+<p>
+  <strong>Sapglaccount:</strong>
+  <%=h @account.sapglaccount %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_account_path(@account) %> |
+  <%= link_to "Destroy", @account, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", accounts_path %>
+</p>

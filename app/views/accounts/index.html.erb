@@ -1,0 +1,27 @@
+<% title "Accounts" %>
+<% form_tag accounts_path, :method => 'get' do %>
+	<p>
+		<%= text_field_tag :search, params[:search] %>
+		<%= submit_tag "Search by Account Name", :account => nil%>
+	</p>	
+<% end %>
+
+
+<table>
+  <tr>
+    <th>Account</th>
+    <th>SAP GL Account</th>
+  </tr>
+  <% for account in @accounts %>
+    <tr>
+      <td><%=h account.account %></td>
+      <td><%=h account.sapglaccount %></td>
+      <td><%= link_to "Show", account %></td>
+      <td><%= link_to "Edit", edit_account_path(account) %></td>
+      <td><%= link_to "Destroy", account, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+<%= will_paginate @accounts %>
+
+<p><%= link_to "New Account", new_account_path %></p>

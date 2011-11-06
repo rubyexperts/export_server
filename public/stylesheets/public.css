@@ -1,0 +1,66 @@
+/* Public stylesheet */
+
+/* Colors
+red:          #993120
+green:        #94B26F
+light green:  #B6D491
+yellow:       #F2DC87
+dark brown:   #332318
+light brown:  #4C2516
+*/
+
+html { height: 100%; width: 100% }
+body { width: 100%; min-width: 1350px; height: 100%; margin: 0; padding: 0; 
+  font: 11px Verdana,Lucida,Arial,Helvetica,sans-serif; color: #332318; }
+p, td, ul, ol, li, dl, dt, dd { 
+  font-family: Verdana,Lucida,Arial,Helvetica,sans-serif;}
+img { border: none; }
+table { border-collapse: collapse; }
+table tr th, table tr td { vertical-align: top; 
+  padding: 1.5px;}
+
+
+.fields input  {height: 13px; font-size: 10px; font-weight: bold ; color: #0000FF;  }
+.fields select  {height: 20px; font-size: 10px; font-weight: bold ; color: #0000FF;}
+
+a, a:visited { color: #993120; font-size: 1.2em;  text-decoration: none;}
+a:hover { text-decoration: underline; }
+a:hover {}
+
+.clear { clear: both; }
+.center { text-align: center; }
+
+/* Structure */
+#header { height: 3.2em; padding-top: 1em; 
+  background: #FFFFFF; color: #993120;}
+#header h3 { margin: 0; padding: 0; text-align: center;   }
+#header a { margin: 3em; padding: 4; color: #F2DC87; }
+#header table {width: 1000px;}
+#menulinks { height: 1.4em; padding-top: 1em; 
+  background: #993120; color: #FFFFFF; }
+#menulinks a {  color: #F2DC87; font-size: 1.1em; }
+#menulinks table { clear: both; margin: 0 50px; width: 1110px; }
+#menulinks table tr th { white-space: nowrap; padding-right: 5px;}
+#menulinks table tr td {solid #666666; }
+
+#printout table {clear: both; margin: 0 0; width: 80%;}
+#printout table tr th {text-align: right;}
+#lineitems table tr th {text-align: center;}
+
+#main { min-height: 450px;  background: #F2DC87;  }
+#navigation { float: left; width: 180px; min-height: 480px; padding: 1px; 
+  background: #94B26F; color: #4C2516; }
+#content { padding: 1px;}
+#footer { clear: both; height: 2.5em; text-align: center;
+  background: #993120; color: #FFFFFF; }
+#footer p { margin: 0; padding: 0.5em 1em; }
+
+/* Navigation */
+#navigation ul { list-style: none; margin: 0; padding: 0; }
+#navigation ul li { margin-bottom: 0.5em; }
+#navigation ul ul { margin: 0.5em 0 0 1em; font-size: 0.9em; }
+#navigation a { text-decoration: none; padding: 1px 3px;}
+#navigation a:hover { background: #F2DC87; }
+
+/* Content */
+#content h2 { color: #4C2516; }

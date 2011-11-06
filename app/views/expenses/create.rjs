@@ -1,0 +1,5 @@
+page.replace_html :totamt, @expense.total_amount
+page.replace_html :totamteuro, @expense.total_amount_euro
+page.replace_html :totamtmarketing, @expense.total_amount_marketing
+page.replace_html :totamtmarketingeuro, @expense.total_amount_marketing_euro
+

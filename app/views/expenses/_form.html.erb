@@ -1,0 +1,87 @@
+<% form_for @expense, :html => {:id => 'expense_form'}  do |f| %>
+ <div id="expenseerrors"> <%= f.error_messages %>  </div>
+ <div class="fields">
+   	  <table width="1000" border="0">
+ 	    <tr>
+ 	    	<td>
+		  		<table width="480" cellpadding="1">
+		  			<tr>
+ 	    				<th align="right"> <%= f.label :name, " Expense Report Title (E.g. Milwaukee trip in November)" %></th>
+		  				<td>     <%= f.text_field :name, :size => "40" %></td>
+          			</tr>
+      			    <tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
+          			<tr>
+		  				<th align="right"> <%= f.label :exchangerate, "Euro to USD Exchange Rate (only if" %> </br>
+		  				<b>reporting in Euro) </b> </th>  
+		  				<td>     <%= f.text_field :exchangerate, :size => "10" %></td>
+		  			</tr>
+		  			<% if @expense.status != nil %>
+		  			  <tr>
+		  				<th align="right">Status</th>  
+		  				<td> <%= @expense.status %></td>
+		  			  </tr>
+		  			<% end %>  
+		  		</table>
+			</td>
+			<td width="300"></td>
+			<td>
+				<table width="280" cellspacing="2">
+					<tr>
+		  				<th align="right">Total in USD</th>
+     	  				<td id="totamt" size="7" align="left" ><%=number_to_currency(@total_amount) %></td>
+     	  			</tr>
+					<tr>  
+						<th align="right">Marketing Total in USD</th>
+		  				<td id="totamtmarketing" size="7" align="left" ><%=number_to_currency(@total_amount_marketing) %></td>
+	    			</tr>
+
+     	  			<tr>
+						<th align="right">Total in Euro</th>
+		  				<td id="totamteuro" size="7" align="left" ><%=number_to_currency(@total_amount_euro, :unit => "€") %></td>
+			        </tr>
+					<tr>  
+		  				<th align="right">Marketing Total in Euro</th>
+		  				<td id="totamtmarketingeuro" size="7" align="left" ><%=number_to_currency(@total_amount_marketing_euro, :unit => "€") %></td>
+	    			</tr>
+    				<% if @expense.created_at != nil %>
+						<tr></tr><tr></tr><tr></tr>
+    					<tr>
+      						<th align="right"> <%= f.label :created_at, "Report Created on" %> </th>
+      						<td align="left"> <%= @expense.created_at.strftime("%b %d, %Y") %> </td>
+    					</tr>
+    					<tr>
+      						<th align="right"> <%= f.label :id, "Report Id" %> </th>
+      						<td align="left"><%= @expense.id %> </td>
+    					</tr>
+					<% end %>
+    			</table>
+    		</td>
+    	</tr>
+</table>    
+</div>
+
+
+<h3>Line Items </h3>
+<table border="0" width="1179">
+
+  <tr align="left">
+  <th width="140"> <%= f.label  :expense_date, "Expense Date" %> </th>
+  <th width="170">  <%= f.label :item_description, "Detailed Description" %> </th>
+  <th width="190">  <%= f.label :account, "Expense Type" %> </th>
+  <th width="60">  <%= f.label :linecost, "Amount USD" %> </th>
+  <th width="60">  <%= f.label :linecost_euro, "Amount Euro" %> </th>
+  <th width="58">  <%= f.label :exchangerate, "Exchg. Rate" %> </th>
+  <th width="239">  <%= f.label :costcenter, "Project (if applicable)" %> </th>
+  <th width="122">  <%= f.label :user_id, "Filing for Others (if applicable)" %> </th>  
+  <th width="70">  <%= f.label :ptslmarketing, "Marketing Charge" %> </th>
+  </tr>
+</table>
+
+
+  <% f.fields_for :items do |builder| %>
+    <%=  render 'item_fields', :f => builder %>
+  <% end %>
+  <p> <%= link_to_add_fields "Add Line Items", f, :items %> </p>
+
+  <p><%= f.submit %></p>
+<% end %>

@@ -1,0 +1,10 @@
+<% title "Edit User" %>
+
+<%= render :partial => 'form' %>
+
+<% if @current_user.user_level >= 9%>
+   <p>
+     <%= link_to "Show", @user %> |
+     <%= link_to "View All", users_path %>
+   </p>
+<% end %>

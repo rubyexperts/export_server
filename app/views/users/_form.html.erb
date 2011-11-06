@@ -1,0 +1,52 @@
+<% form_for @user do |f| %>
+  <%= f.error_messages %>
+  <% if @current_user.user_level >= 9%>
+     <p>
+       <%= f.label :username %><br />
+       <%= f.text_field :username %>
+     </p>
+  <% end %>
+  <p>
+    <%= f.label :password, "New Password (minimum length is 6 characters)" %><br />
+    <%= f.password_field :password %>
+  </p>
+  <p>
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %>
+  </p>
+
+   <% if @current_user.user_level >= 9%>
+    <p>
+    <%= f.label :display_name %><br />
+    <%= f.text_field :display_name %>
+  </p>
+    <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :user_level %><br />
+    <%= f.text_field :user_level %>
+  </p>
+    <p>
+    <%= f.label :site %><br />
+    <%= f.text_field :site %>
+  </p>
+  <p>
+    <%= f.label :reports_to %><br />
+    <%= f.text_field :reports_to %>
+  </p>
+  <p>
+    <%= f.label :direct_indirect %><br />
+    <%= f.text_field :direct_indirect %>
+  </p>
+    <p>
+    <%= f.label :cost_center %><br />
+    <%= f.text_field :cost_center %>
+  </p>
+
+
+  <% end %>
+
+  <p><%= f.submit %></p>
+<% end %>

@@ -1,0 +1,12 @@
+<% form_for @account do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :account %><br />
+    <%= f.text_field :account %>
+  </p>
+  <p>
+    <%= f.label :sapglaccount %><br />
+    <%= f.text_field :sapglaccount %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

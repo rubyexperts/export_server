@@ -1,0 +1,45 @@
+<% @page_title = 'Expense List' %>
+
+<% form_tag search_list_expenses_path, :method => 'get' do %>
+	<p>
+		<%= text_field_tag :search, params[:search] %>
+		<%= submit_tag "Search by ID", :name => nil%>
+	</p>	
+<% end %>
+
+
+<div class="list">
+<% if @expenses.size > 0 %>
+	<table>
+		<tr>
+			<th>Expense Id</th>
+			<th>Belongs To</th>
+			<th>Title</th>
+			<th>Created on</th>
+			<th>Status</th>
+			<th>Actions</th>
+			
+		</tr>
+	
+	 
+	<% for expense in @expenses %>
+		<tr class="<%= cycle('odd', 'even')%>">
+			<td><%= h(expense.id.to_s) %></td>
+			<td><%= expense.user.display_name %></td>
+			<td><%= h(expense.name) %></td>
+			<td><%= expense.created_at.strftime("%b %d, %Y") %></td>
+			<td><%= expense.status %></td>
+			<td class="actions">
+			   <%= link_to('Update', {:action => 'status_change', :id => expense} ) %>
+			   <%= link_to('Preview/Print', {:action => 'show', :id => expense},  :target => '_blank') %>
+			</td>   
+			
+			
+		</tr>
+		
+	<% end %>
+	</table>
+<% end %>	
+</div>
+<%= will_paginate @expenses %>
+

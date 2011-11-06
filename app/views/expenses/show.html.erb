@@ -1,0 +1,107 @@
+<% @page_title = 'Expense Report' %>
+<div id="printout">
+   	  <table>
+ 	    <tr>
+ 	    	<td>
+		  		<table>
+		  			
+		  			<tr>
+ 	    				<th><FONT SIZE="3">   Belongs To: </FONT> </th>
+		  				<td><FONT SIZE="3"> <%= @expense.user.display_name %> - <%= @expense.user.direct_indirect%> </FONT> </td>
+          			    
+          			</tr>
+          			<tr></tr><tr></tr><tr></tr>
+      			    <tr>
+		  				<th>Title:</th>
+		  				<td><%= @expense.name %></td>
+		  			</tr>
+          			<tr>
+		  				<th>Report Id:</th>
+		  				<td><%= @expense.id %></td>
+		  			</tr>
+		  			<tr>
+      					<th>Created on:</th>
+      					<td> <%= @expense.created_at.strftime("%b %d, %Y") %> </td>
+    				</tr>
+	
+		  		</table>
+			</td>
+			<td width="300"></td>
+			<td>
+				<table>
+					<tr>
+		  				<th> <FONT SIZE="3"> Total in USD: </FONT> </th>
+     	  				<td id="totamt" size="7"><FONT SIZE="3"> <%=number_to_currency(@total_amount) %> </FONT></td>
+     	  			</tr>
+     	  			
+					<tr>  
+						<th>Marketing Total in USD:</th>
+		  				<td id="totamtmarketing" size="7"><%=number_to_currency(@total_amount_marketing) %></td>
+	    			</tr>
+
+     	  			<tr>
+						<th>Total in Euro:</th>
+		  				<td id="totamteuro" size="7"><%=number_to_currency(@total_amount_euro, :unit => "€") %></td>
+			        </tr>
+					<tr>  
+		  				<th>Marketing Total in Euro:</th>
+		  				<td id="totamtmarketingeuro" size="7"><%=number_to_currency(@total_amount_marketing_euro, :unit => "€") %></td>
+	    			</tr>
+					<tr>  
+		  				<th>Euro to USD Exchange Rate:</th>
+		  				<td id="exchangerate" size="7"><%=@expense.exchangerate %></td>
+	    			</tr>
+    			</table>
+    		</td>
+    	</tr>
+</table>  
+</div>  
+<h3>Line Items </h3>
+<div id="lineitems">
+<table border="1">	
+	<tr>
+	<th>Date</th>
+	<th>Line Description</th>
+	<th>Expense Type</th>
+	<th>Project Or Cost Center</th>
+	<th>GL Account</th>
+	<th>USD Amount</th>
+	<th>Euro Amount</th>
+	<th>Line Exchange Rate</th>
+	<th>Marketing</th>
+	</tr>
+	<% for item in @expense.items.find(:all,:order => "expense_date desc") %>
+		<tr>
+		<td><%= h(item.expense_date.strftime("%b %d, %Y")) %></td>
+		<td><%= h(item.item_description) %></td>
+		<td><%= h(item.account.account) %></td>
+		<td><%= h(item.cost_center) %></td>
+		<td><%= h(item.account.sapglaccount) %></td>
+		<td align="right"><%= h(number_to_currency(item.linecost)) %></td>
+		<td align="right"><%= h(number_to_currency(item.linecost_euro, :unit => "€")) %></td>
+		<td align="right"><%= h(number_to_currency(item.exchangerate)) %></td>
+		<% if item.ptslmarketing %>
+		    <td>Yes</td>
+		<% else %>
+		   <td>No</td>
+		<% end %>   
+		</tr>
+    <% end %>
+</table>	
+</div>
+</br></br></br></br>
+<table>
+	<tr>
+		<th>Employee Signature:____________________________</th>
+		<th>Date:___________________</th>
+	</tr>
+	<tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
+	<tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
+	<tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
+	<tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
+	<tr>
+		<th>Approval Signature:_____________________________</th>
+		<th>Date:___________________</th>
+	</tr>	
+</table>
+</div>

@@ -1,0 +1,18 @@
+<% form_for @project do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :wbscode %><br />
+    <%= f.text_field :wbscode %>
+
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  
+  </p>
+    <%= f.label :commontoallsites %><br />
+    <%= f.text_field :commontoallsites %>
+  </p>
+
+  <p><%= f.submit %></p>
+<% end %>

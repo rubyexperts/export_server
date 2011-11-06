@@ -1,0 +1,18 @@
+<table border="0"  class="fields" >
+
+  <tr>
+  <td>  <%= f.date_select :expense_date, :order => [:year, :month, :day], :use_short_month => true, :default => @expense.get_date %></td>
+  <td>  <%= f.text_field :item_description, :size => 30, :maxlength => 40 %> </td>
+  <td>  <%= f.collection_select :account_id, Account.find(:all, :order => "account"), :id, :account, {:prompt => "Select Expense Type"}, { "style" => "width:200px" } %> </td>
+  <td>  <%= f.text_field :linecost, :format => "9999.99", :size => "7"   %> </td>
+  <td> <%= f.text_field :linecost_euro, :size => "7" %> </td>
+  <td> <%= f.text_field :exchangerate,  :size => "7" %> </td>
+  <td>  <%= f.collection_select :project_id, Project.find(:all, :order => "description"), :id, :description, {:include_blank => "N/A (Not Applicable)"}, {"style" => "width:250px" } %> </td>
+  <td>  <%= f.collection_select :user_id, User.find(:all, :conditions => ["site = ?" , @current_user.site]), :id, :display_name, {:include_blank => "N/A (Not Applicable)"}, {"style" => "width:130px" } %> </td>
+  <td width="70">  <%= f.check_box :ptslmarketing %> </td>
+  <td>  <%= f.hidden_field :_destroy %>
+        <%= link_to_function "Delete", "remove_fields(this)"  %>
+  </td>
+
+  </tr>
+</table>

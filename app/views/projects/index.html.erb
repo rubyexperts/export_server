@@ -1,0 +1,29 @@
+<% title "Projects" %>
+
+<% form_tag projects_path, :method => 'get' do %>
+	<p>
+		<%= text_field_tag :search, params[:search] %>
+		<%= submit_tag "Search by Project Name", :description => nil%>
+	</p>	
+<% end %>
+
+
+<table>
+  <tr>
+    <th>Project Code</th>
+    <th>Description</th>
+  </tr>
+  <% for project in @projects %>
+    <tr>
+      <td><%=h project.wbscode %></td>
+      <td><%=h project.description %></td>
+      <td><%= link_to "Show", project %></td>
+      <td><%= link_to "Edit", edit_project_path(project) %></td>
+      <td><%= link_to "Destroy", project, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= will_paginate @projects %>
+
+<p><%= link_to "New Project", new_project_path %></p>
