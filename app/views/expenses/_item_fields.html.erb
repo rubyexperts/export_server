@@ -34,11 +34,13 @@
       {        
 	document.getElementById(checkbox_id).checked = "checked";
         document.getElementById(checkbox_id).disabled = true;
+	document.getElementById(checkbox_id).previousSibling.value = 1;
       }
   else
       { 
-      document.getElementById(checkbox_id).checked = false;
-      document.getElementById(checkbox_id).disabled = false;
+     	document.getElementById(checkbox_id).checked = false;
+      	document.getElementById(checkbox_id).disabled = false;
+      	document.getElementById(checkbox_id).previousSibling.value = 0;
       } 
   }  
 </script>
