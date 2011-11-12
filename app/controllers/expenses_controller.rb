@@ -74,7 +74,8 @@ before_filter :authorize_access
 
   def update
     @expense = Expense.find(params[:id])
-    
+    @marketing_array = User.all.collect(&:ptslmarketing).join(",")   
+    @users_array = User.all.collect(&:id).join(",") 
     if @expense.update_attributes(params[:expense])
       flash[:notice] = "Successfully updated expense."
       if request.referer.include?('status_change')
