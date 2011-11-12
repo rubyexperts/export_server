@@ -8,7 +8,7 @@
   <td> <%= f.text_field :linecost_euro, :size => "7" %> </td>
   <td> <%= f.text_field :exchangerate,  :size => "7" %> </td>
   <td>  <%= f.collection_select :project_id, Project.find(:all, :order => "description"), :id, :description, {:include_blank => "N/A (Not Applicable)"}, {"style" => "width:250px" } %> </td>
-  <td>  <%= f.collection_select :user_id, User.find(:all), :id, :display_name, {:include_blank => "N/A (Not Applicable)"}, {"style" => "width:130px" } %> </td>
+  <td>  <%= f.collection_select :user_id, User.find(:all), :id, :display_name, {:include_blank => "N/A (Not Applicable)"}, {"style" => "width:130px" , :onchange => "marketing_change(this)" } %> </td>
   <td width="70">  <%= f.check_box :ptslmarketing %> </td>
   <td>  <%= f.hidden_field :_destroy %>
         <%= link_to_function "Delete", "remove_fields(this)"  %>
@@ -16,3 +16,29 @@
 
   </tr>
 </table>
+
+<script lang="javascript"> 
+  function marketing_change(ele)
+   {  
+   var m_value = ele.value;  
+   var m_id = ele.id;  
+   checkbox_id = m_id.replace("user_id", "ptslmarketing");  
+   var users = document.getElementById('all_ids');
+   var users_array = new Array();     
+   users_array = users.value.split(",");
+   var marketing = document.getElementById('marketing')     
+   var marketing_array =new Array();
+   marketing_array = marketing.value.split(","); 
+   var users_index = users_array.indexOf(m_value); 
+   if (marketing_array[users_index] == "true")
+      {        
+	document.getElementById(checkbox_id).checked = "checked";
+        document.getElementById(checkbox_id).disabled = true;
+      }
+  else
+      { 
+      document.getElementById(checkbox_id).checked = false;
+      document.getElementById(checkbox_id).disabled = false;
+      } 
+  }  
+</script>

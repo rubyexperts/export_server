@@ -59,6 +59,8 @@ before_filter :authorize_access
 	@total_amount_marketing = @expense.total_amount_marketing
 	@total_amount_euro = @expense.total_amount_euro
 	@total_amount_marketing_euro = @expense.total_amount_marketing_euro
+        @marketing_array = User.all.collect(&:ptslmarketing).join(",") 
+        @users_array = User.all.collect(&:id).join(",")
   end
 
   def status_change

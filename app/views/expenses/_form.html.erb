@@ -77,6 +77,8 @@
   </tr>
 </table>
 
+ <%=hidden_field_tag :all_ids, @users_array  %> 
+ <%=hidden_field_tag :marketing, @marketing_array %>
 
   <% f.fields_for :items do |builder| %>
     <%=  render 'item_fields', :f => builder %>
